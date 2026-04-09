@@ -58,3 +58,159 @@ body {
     margin-bottom: 20px;
 }
 
+
+/*Bloco 1 - Botão com Transição*/
+
+.botao-transition{
+    background-color: #6a0dad; /*Cor de fundo Inicial*/
+    color: white;
+    border: none; /*Remove a borda padrão*/
+    padding: 14px 24px;
+    border-radius: 8px;
+    cursor:pointer ; /*Cursor de clique*/
+    font-size: 16px;
+
+    /*Transição: faz qualquer mudança suave*/
+    transition: 0.4s;
+}
+
+.botao-transition:hover {
+    background-color: #ff1493;
+    /* Transformação: aumentar o botão*/
+    transform: scale(1.1);
+}
+
+
+/*Bloco 2 - Transformação*/
+
+.caixa-transform {
+    width: 100px;
+    height: 100px;
+    background-color: #00bcd4;
+    border-radius: 10px;
+
+    /*Transição suave*/
+    transition: 0.5s;
+}
+
+.caixa-transform:hover {
+    /* Rotate = girar o elemento
+        Scale = aumenta o tamanho
+    */
+    transform: rotate(20deg) scale(1.15);
+}
+
+/*Bloco 3 - Animação em movimento*/
+
+/*Area onde a animação acontece*/
+.area-animacao {
+    width: 100%;
+    height: 120px;
+    border: 2px dashed #ccc; /*Borda pontilhada*/
+    border-radius: 10px;
+    position: relative; /*Necessário para posicionamento interno*/
+    overflow: hidden; /*Esconde o que sair da área*/
+    padding: 10px;
+}
+
+/*Caixa que vai se mover*/
+
+.caixa-movendo {
+    width: 80px;
+    height: 80px;
+    background-color: #ff9800;
+    border-radius: 12px;
+    position: absolute; /*Permite movimentação dentro da área*/
+    top: 20px;
+
+    /*Animação: 
+        nome| duração | repetição | direção
+    */
+    animation:  moverCaixa 3s infinite alternate;
+}
+
+/*KeyFrames: Define o inicio e o fim da animação*/
+@keyframes moverCaixa {
+    /*Estado inicial*/
+    from{
+        left: 0;
+    }
+    
+    /*estado final*/
+    to {
+        left: calc(100% - 80px);
+        /*vai determinar até onde ele vai */
+    }
+}
+
+/*Bloco 4 - Texto aparecendo*/
+.texto-aparecendo {
+    opacity: 0; /* Começar invisivel*/
+
+    /*forward = matém o estado final*/
+    animation: aparecerTexto 10s forwards;
+}
+
+@keyframes aparecerTexto {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /*Começar mais baixo*/
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /*Sobe para a posição normal*/
+    }
+}
+
+/*Bloco 5 - Bola subindo e decendo*/
+
+.bola {
+    width: 80px;
+    height: 80px;
+    background-color: #e91e63;
+    border-radius: 50%; /*forma circular*/
+
+    /* alternate = vai e volta
+        ease-in-out = suavizar inicio e fim
+    */
+    animation:  subirDescer 1.5s infinite  alternate ease-in-out;
+}
+
+@keyframes subirDescer {
+    from {
+        transform: translateY(0); /*posição inicial*/
+    }
+
+    to{
+        transform: translateY(-100px); /*sobe*/
+    }
+}
+
+
+/*Bloco 6 - Card Interativo*/
+
+.card{
+    background-color: #fafafa;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+
+    /*transição suve*/
+    transition: 0.4s;
+}
+
+.card h3 {
+    margin-bottom:10px ;
+    color: #333;
+}
+
+.card:hover {
+
+    /*Leve movimento para cima*/
+    transform: translateY(-8px) scale(1.03);
+    /*Sombra mais forte*/
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+
+    border-color: #9c27b0; /*Destaque na borda*/
+}
